@@ -1,3 +1,6 @@
-# hello, homiehood!
+Title: Homiehood Wiki
+Description: Dual purpose landing page and index.
 
-{{TABLE_OF_PAGES}}
+Blah Blah
+
+{{INDEX}}
