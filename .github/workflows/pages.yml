@@ -1,45 +1,12 @@
 name: build
 
-on:
-  push:
-    branches: ["main"]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+on: push
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      
-      - name: install alpine
-        uses: jirutka/setup-alpine@v1
-      
-      - name: install programs
+      - uses: docker://alpine:latest
         run: |
-          apk add lowdown
-        shell: alpine.sh --root {0}
-      
-      - name: build pages
-        run: |
-          sh bin/build.sh
-        shell: alpine.sh {0}
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
-
+        ls -ls
