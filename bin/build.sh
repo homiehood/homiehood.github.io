@@ -25,5 +25,5 @@ then
   git config user.name "${ACTOR}"
   git add www
   git commit -m "deploy ${GITHUB_SHA}"
-  git push -f "https://${ACTOR}:${TOKEN}@github.com/${REPO}.git" main:${BRANCH}
+  git push -f "https://${ACTOR}:${TOKEN}@github.com/homiehood/homiehood.git" main:${BRANCH}
 fi
