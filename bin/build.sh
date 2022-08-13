@@ -1,7 +1,6 @@
 #!/bin/sh
 set -eu
 
-rm -rf doc
 WWW="docs"
 SRC="src"
 
