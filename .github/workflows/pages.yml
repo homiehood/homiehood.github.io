@@ -23,5 +23,6 @@ jobs:
       
       - name: build site
         run: |
+          apk add lowdown
           sh bin/build.sh
         shell: alpine.sh --root {0}
