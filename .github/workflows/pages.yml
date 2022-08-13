@@ -18,10 +18,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: jirutka/setup-alpine@v1
-        with:
-        branch: v3.15
-      - run: |
+      - name: install
+        uses: jirutka/setup-alpine@v1
+        run: |
           ls -la
           pwd
         shell: alpine.sh {0}
