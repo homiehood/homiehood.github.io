@@ -20,15 +20,11 @@ jobs:
       - name: setup pages
         id: pages
         uses: actions/configure-pages@v1
-        
-      - name: install packages
+
+      - name: build site
         shell: alpine.sh --root {0}
         run: |
-          apk add lowdown
-        
-      - name: build site
-        shell: alpine.sh {0}
-        run: |
+          apk add lowdown git
           sh bin/build.sh
           git commit -a -m "updating html pages"
           git push --force
