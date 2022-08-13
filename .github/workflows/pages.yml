@@ -18,12 +18,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: install
+      - name: install alpine
         uses: jirutka/setup-alpine@v1
-      - run: |
-          ls -la
-          pwd
-        shell: alpine.sh {0}
+      
+      - name: install programs
+        run: |
+          apk add lowdown
+        shell: alpine.sh --root {0}
   deploy:
     environment:
       name: github-pages
@@ -34,3 +35,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+
