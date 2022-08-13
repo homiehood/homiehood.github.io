@@ -24,7 +24,13 @@ jobs:
       - name: install programs
         run: |
           apk add lowdown
+          ls -la
         shell: alpine.sh --root {0}
+      
+      - name: build
+        run: |
+          ls -la
+        shell: alpine.sh {0}
   deploy:
     environment:
       name: github-pages
