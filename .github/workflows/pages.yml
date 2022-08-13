@@ -2,11 +2,23 @@ name: build
 
 on: push
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout
       - uses: actions/checkout@v2
-      - uses: docker://alpine:latest
+      
+      - name: setup pages
+        id: pages
+        uses: actions/configure-pages@v1
+      
+      - name: build site
+        uses: docker://alpine:latest
         run: |
-        ls -ls
+          ls -lsa
