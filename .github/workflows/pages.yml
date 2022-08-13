@@ -30,3 +30,9 @@ jobs:
         shell: alpine.sh {0}
         run: |
           sh bin/build.sh
+        
+      - name: upload pages
+        uses: actions/upload-artifact@v3
+        with:
+          name: pages
+          path: _pages
