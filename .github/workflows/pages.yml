@@ -26,9 +26,9 @@ jobs:
         run: |
           apk add lowdown git
           sh bin/build.sh
-        
-      - name: deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: _site
+        env:
+          PUBLIC: 1
+          BRANCH: gh-pages
+          TOKEN:  ${{ secrets.GITHUB_TOKEN }
+          ACTOR:  ${{ github.actor }}
+          REPO:   homiehood
