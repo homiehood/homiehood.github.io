@@ -2,14 +2,14 @@
 set -eu
 
 WWW="doc"
+SRC="src"
 
-rm -rf www
 mkdir -p "$WWW"
 
 # build index
 # ===========
 
-lowdown -s -Thtml -o "${WWW}/index.html"
+lowdown -s -Thtml "${SRC}/index.md" -o "${WWW}/index.html"
 
 # build each page
 # ===============
