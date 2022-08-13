@@ -26,12 +26,11 @@ jobs:
       - name: install programs
         run: |
           apk add lowdown
-          ls -la
         shell: alpine.sh --root {0}
       
-      - name: build
+      - name: build pages
         run: |
-          ls -la
+          sh bin/build.sh
         shell: alpine.sh {0}
   deploy:
     environment:
