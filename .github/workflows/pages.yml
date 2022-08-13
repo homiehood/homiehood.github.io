@@ -23,5 +23,5 @@ jobs:
       
       - name: build site
         run: |
-          ls -ls
+          sh bin/build.sh
         shell: alpine.sh --root {0}
