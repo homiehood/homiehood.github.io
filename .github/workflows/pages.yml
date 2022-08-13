@@ -29,6 +29,6 @@ jobs:
         env:
           PUBLIC: 1
           BRANCH: gh-pages
-          TOKEN:  ${{ secrets.GITHUB_TOKEN }
+          TOKEN:  ${{ secrets.GITHUB_TOKEN }}
           ACTOR:  ${{ github.actor }}
           REPO:   homiehood
