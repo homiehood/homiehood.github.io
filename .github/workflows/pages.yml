@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: install
         uses: jirutka/setup-alpine@v1
-        run: |
+      - run: |
           ls -la
           pwd
         shell: alpine.sh {0}
@@ -34,4 +34,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
-
