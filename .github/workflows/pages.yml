@@ -26,8 +26,8 @@ jobs:
         run: |
           apk add lowdown git
         
-      - name: install packages
-        shell: alpine.sh --root {0}
+      - name: build site
+        shell: alpine.sh {0}
         run: |
           sh bin/build.sh
         env:
