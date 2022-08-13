@@ -13,16 +13,20 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
-      
+        
       - name: setup alpine
         uses: jirutka/setup-alpine@v1
-      
+        
       - name: setup pages
         id: pages
         uses: actions/configure-pages@v1
-      
-      - name: build site
+        
+      - name: install packages
+        shell: alpine.sh --root {0}
         run: |
           apk add lowdown
+        
+      - name: build site
+        shell: alpine.sh {0}
+        run: |
           sh bin/build.sh
-        shell: alpine.sh --root {0}
