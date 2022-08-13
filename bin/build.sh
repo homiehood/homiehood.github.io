@@ -17,7 +17,7 @@ lowdown -s -Thtml -o www/index.html
 
 git status
 echo "${PUBLISH:-0}"
-find . -A
+find . -a
 
 if [ "${PUBLISH:-0}" = "1" ]
 then
