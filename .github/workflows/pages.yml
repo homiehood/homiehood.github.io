@@ -30,19 +30,5 @@ jobs:
         shell: alpine.sh {0}
         run: |
           sh bin/build.sh
-        
-      - name: upload pages
-        uses: actions/upload-artifact@v3
-        with:
-          name: pages
-          path: _site
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+          git commit -a -m "updating html pages"
+          git push --force
