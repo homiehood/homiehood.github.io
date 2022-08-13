@@ -1,12 +1,12 @@
 #!/bin/sh
 set -eu
 
-mkdir -p _site
+mkdir -p www
 
 # build index
 # ===========
 
-lowdown -s -Thtml -o _site/index.html
+lowdown -s -Thtml -o www/index.html
 
 # build each page
 # ===============
@@ -15,12 +15,15 @@ lowdown -s -Thtml -o _site/index.html
 # upload
 # ======
 
+git status
+echo "${PUBLISH:-0}"
+find . -A
+
 if [ "${PUBLISH:-0}" = "1" ]
 then
-  git init
   git config user.email "${ACTOR}@users.noreply.github.com"
   git config user.name "${ACTOR}"
-  git add -A
+  git add www
   git commit -m "deploy ${GITHUB_SHA}"
   git push -f "https://${ACTOR}:${TOKEN}@github.com/${REPO}.git" main:${BRANCH}
 fi
