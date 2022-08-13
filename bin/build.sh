@@ -1,7 +1,8 @@
 #!/bin/sh
 set -eu
 
-WWW="doc"
+rm -rf doc
+WWW="docs"
 SRC="src"
 
 mkdir -p "$WWW"
