@@ -21,10 +21,14 @@ jobs:
         id: pages
         uses: actions/configure-pages@v1
 
-      - name: build site
+      - name: install packages
         shell: alpine.sh --root {0}
         run: |
           apk add lowdown git
+        
+      - name: install packages
+        shell: alpine.sh --root {0}
+        run: |
           sh bin/build.sh
         env:
           PUBLIC: 1
