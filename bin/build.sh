@@ -1,29 +1,15 @@
 #!/bin/sh
 set -eu
 
-mkdir -p www
+WWW="doc"
+
+rm -rf www
+mkdir -p "$WWW"
 
 # build index
 # ===========
 
-lowdown -s -Thtml -o www/index.html
+lowdown -s -Thtml -o "${WWW}/index.html"
 
 # build each page
 # ===============
-
-
-# upload
-# ======
-
-git status
-echo "${PUBLISH:-0}"
-find . -a
-
-if [ "${PUBLISH:-0}" = "1" ]
-then
-  git config user.email "${ACTOR}@users.noreply.github.com"
-  git config user.name "${ACTOR}"
-  git add www
-  git commit -m "deploy ${GITHUB_SHA}"
-  git push -f "https://${ACTOR}:${TOKEN}@github.com/homiehood/homiehood.git" main:${BRANCH}
-fi
