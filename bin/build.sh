@@ -81,5 +81,8 @@ do
 	n="${n##${SRC}/}"
 	n="${n%.md}.html"
 	o="${WWW}/${n}"
-	write "${i}" "${o}"
+	if [ ! "${n}" = "index.html" ]
+	then
+		write "${i}" "${o}"
+	fi
 done
